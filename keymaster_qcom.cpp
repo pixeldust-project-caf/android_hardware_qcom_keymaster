@@ -795,6 +795,10 @@ while (attempt_num < MAX_PROPERTY_GET_ATTEMPTS)
     if(ret)
         ret = (*km_handle->QSEECom_start_app)((struct QSEECom_handle **)&km_handle->qseecom,
                         "/firmware/image", "keymaste", KM_SB_LENGTH);
+    if(ret)
+        ret = (*km_handle->QSEECom_start_app)((struct QSEECom_handle **)&km_handle->qseecom,
+                        "/firmware/image", "skeymast", KM_SB_LENGTH);
+
     if (ret) {
         ALOGE("Loading keymaster app failed");
         free(km_handle);
